@@ -46,6 +46,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
+<style>
+.fileDrop {
+	width: 100%;
+	height: 200px;
+	border: 2px dotted #0b58a2;
+}
+</style>
 <!--
 BODY TAG OPTIONS:
 =================
@@ -70,9 +77,9 @@ desired effect
 	<div class="wrapper">
 
 		<!-- Main Header -->
-		<%@ include file="include/main_header.jsp"%>
+		<%@ include file="../include/main_header.jsp"%>
 		<!-- Left side column. contains the logo and sidebar -->
-		<%@ include file="include/left_column.jsp"%>
+		<%@ include file="../include/left_column.jsp"%>
 
 
 		<!-- Content Wrapper. Contains page content -->
@@ -91,6 +98,45 @@ desired effect
 
 			<!-- Main content -->
 			<section class="content container-fluid">
+				<div class="col-lg-12">
+					<div class="box box-primary">
+						<div class="box-header with-border">
+							<h3 class="box-title">게시글 목록</h3>
+						</div>
+						<div class="box-body">
+							<table class="table table-bordered">
+								<tbody>
+									<tr>
+										<th style="width: 30px">#</th>
+										<th>제목</th>
+										<th style="width: 100px">작성자</th>
+										<th style="width: 150px">작성시간</th>
+										<th style="width: 60px">조회</th>
+									</tr>
+									<c:forEach items="${articles}" var="article">
+										<tr>
+											<td>${article.articleNo}</td>
+											<td><a
+												href="${path}/article/read?articleNo=${article.articleNo}">${article.title}</a></td>
+											<td>${article.writer}</td>
+											<td><fmt:formatDate value="${article.regDate}"
+													pattern="yyyy-MM-dd a HH:mm" /></td>
+											<td><span class="badge bg-red">${article.viewCnt}</span></td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+						</div>
+						<div class="box-footer">
+							<div class="pull-right">
+								<button type="button" class="btn btn-success btn-flat"
+									id="writeBtn">
+									<i class="fa fa-pencil"></i> 글쓰기
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
 
 				<!--------------------------
         | Your Page Content Here |
@@ -104,14 +150,14 @@ desired effect
 
 
 		<!-- Main Footer -->
-		<%@ include file="include/main_footer.jsp"%>
+		<%@ include file="../include/main_footer.jsp"%>
 
 
 	</div>
 
 
 	<!-- ./wrapper -->
-	<%@ include file="include/plugin_js.jsp"%>
+	<%@ include file="../include/plugin_js.jsp"%>
 
 
 
