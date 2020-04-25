@@ -18,23 +18,25 @@
 	name="viewport">
 
 <link rel="stylesheet"
-	href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+	href="${pageContext.request.contextPath}/bower_components/bootstrap/dist/css/bootstrap.min.css">
 <!-- Font Awesome -->
 
 <link rel="stylesheet"
-	href="/bower_components/font-awesome/css/font-awesome.min.css">
+	href="${pageContext.request.contextPath}/bower_components/font-awesome/css/font-awesome.min.css">
 <!-- Ionicons -->
 
 <link rel="stylesheet"
-	href="/bower_components/Ionicons/css/ionicons.min.css">
+	href="${pageContext.request.contextPath}/bower_components/Ionicons/css/ionicons.min.css">
 <!-- Theme style -->
 
-<link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/dist/css/AdminLTE.min.css">
 <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
           page. However, you can choose any other skin. Make sure you
           apply the skin class to the body tag so the changes take effect. -->
 
-<link rel="stylesheet" href="/dist/css/skins/skin-blue.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/dist/css/skins/skin-blue.min.css">
+
+
 
 <!-- Google Font -->
 <link rel="stylesheet"
@@ -71,7 +73,7 @@
 			<section class="content container-fluid">
 				<div class="col-lg-12">
 					<form role="form" id="regForm" method="post"
-						action="${path}/board/write">
+						action="${path}/article/write">
 						<div class="box box-primary">
 							<div class="box-header with-border">
 								<h3 class="box-title">게시글 쓰기</h3>
